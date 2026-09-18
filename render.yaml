@@ -2,7 +2,7 @@ services:
   - type: web
     name: hotel4u
     runtime: node
-    buildCommand: npm install
+    buildCommand: npm ci --include=optional
     startCommand: node backend/app.js
     envVars:
       - key: MONGO_URL
