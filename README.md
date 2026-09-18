@@ -124,9 +124,3 @@ backend/init/       Sample data and seed script
 ```bash
 npm run format
 ```
-# fullstack-project
-# fullstack-project
-=======
-
->>>>>>> b9264ffa2e0490f8a34bdd4cbf1cc11266b973d8
-# fullstack-project
