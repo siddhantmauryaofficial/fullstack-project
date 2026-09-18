@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Hotel4u
 
 Hotel4u is a full-stack app for finding and booking places to stay. It's built with Express, MongoDB, EJS, and Passport. You can browse listings, save the ones you like, leave reviews, and book a stay — or list your own place if you're hosting.
@@ -124,4 +125,8 @@ backend/init/       Sample data and seed script
 npm run format
 ```
 # fullstack-project
+# fullstack-project
+=======
+
+>>>>>>> b9264ffa2e0490f8a34bdd4cbf1cc11266b973d8
 # fullstack-project
