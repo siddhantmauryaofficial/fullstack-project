@@ -8,23 +8,26 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "nodemon backend/app.js",
+    "start:server": "node backend/app.js",
+    "seed": "node backend/init/index.js",
     "format": "prettier --plugin=prettier-plugin-ejs --write ."
   },
   "dependencies": {
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.0",
     "ejs": "^5.0.1",
     "ejs-mate": "^4.0.0",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "joi": "^18.1.2",
     "method-override": "^3.0.0",
-    "mongoose": "^9.3.2",
+    "mongoose": "^7.8.7",
     "nodemon": "^3.1.14",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.1.0"
+    "passport-local-mongoose": "^7.1.2"
   },
   "devDependencies": {
     "prettier": "^3.8.1",

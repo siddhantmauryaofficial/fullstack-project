@@ -1,0 +1,39 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="profile-header">
+  <p class="eyebrow">Your travel space</p>
+  <h1><%= currentUser.username %></h1>
+  <p class="muted-copy"><%= currentUser.email %></p>
+</section>
+<nav class="profile-tabs" aria-label="Profile sections">
+  <a class="active" href="/profile">My stays</a>
+  <a href="/profile/favorites">Favorites</a>
+  <a href="/profile/bookings">Bookings</a>
+</nav>
+<section class="profile-section">
+  <div class="section-heading">
+    <h2>Places you added</h2>
+    <a class="btn btn-dark" href="/listings/new.ejs">Add a stay</a>
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
+    <% if (!listings.length) { %>
+    <p class="muted-copy">Your collection is waiting for its first place.</p>
+    <% } %>
+    <% for (let listing of listings) { %>
+    <a class="listing-link" href="/listings/<%= listing._id %>"
+      ><div class="card listing-card">
+        <img
+          class="card-img-top"
+          src="<%= listing.image.url %>"
+          alt="<%= listing.title %>"
+        />
+        <div class="card-body">
+          <strong><%= listing.title %></strong><br />&#8377;
+          <%= listing.price.toLocaleString('en-IN') %>
+          / night
+        </div>
+      </div></a
+    >
+    <% } %>
+  </div>
+</section>

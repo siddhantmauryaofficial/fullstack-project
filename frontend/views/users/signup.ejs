@@ -1,0 +1,56 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="auth-page">
+  <div class="auth-panel auth-panel-copy signup-copy">
+    <p class="eyebrow">A good place to start</p>
+    <h1>Bring your<br /><em>stay ideas.</em></h1>
+    <p class="auth-lede">
+      Join a community collecting the little places that make a big trip
+      memorable.
+    </p>
+  </div>
+  <div class="auth-panel auth-form-panel">
+    <p class="eyebrow">Create your account</p>
+    <h2>Join Hotel4u</h2>
+    <p class="muted-copy">It takes less than a minute to get started.</p>
+    <form
+      action="/signup"
+      method="post"
+      class="auth-form needs-validation"
+      novalidate
+    >
+      <label for="username">Username</label>
+      <input
+        name="username"
+        id="username"
+        type="text"
+        autocomplete="username"
+        required
+      />
+      <div class="invalid-feedback">Choose a username.</div>
+      <label for="email">Email</label>
+      <input
+        name="email"
+        id="email"
+        type="email"
+        autocomplete="email"
+        required
+      />
+      <div class="invalid-feedback">Enter a valid email.</div>
+      <label for="password">Password</label>
+      <input
+        name="password"
+        id="password"
+        type="password"
+        autocomplete="new-password"
+        minlength="6"
+        required
+      />
+      <div class="invalid-feedback">Use at least 6 characters.</div>
+      <button class="btn btn-dark w-100 auth-submit" type="submit">
+        Create account <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </form>
+    <p class="auth-switch">Already a member? <a href="/login">Sign in</a></p>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+  <div class="listing-heading">
+    <div><p class="eyebrow">The Hotel4u edit</p><h3>Stays worth discovering</h3></div>
+    <% if (currentUser) { %><a class="btn btn-dark" href="/listings/new.ejs">Add a stay</a><% } %>
+  </div>
+  <form class="listing-filters" method="get" action="/listings">
+    <input name="q" value="<%= q || '' %>" placeholder="Search by place or stay" aria-label="Search listings" />
+    <input name="location" value="<%= location || '' %>" placeholder="Location" aria-label="Filter by location" />
+    <input name="minPrice" value="<%= minPrice || '' %>" type="number" min="0" placeholder="Min price" aria-label="Minimum price" />
+    <input name="maxPrice" value="<%= maxPrice || '' %>" type="number" min="0" placeholder="Max price" aria-label="Maximum price" />
+    <select name="sort" aria-label="Sort listings"><option value="">Sort by</option><option value="price-asc" <%= sort === 'price-asc' ? 'selected' : '' %>>Price: low to high</option><option value="price-desc" <%= sort === 'price-desc' ? 'selected' : '' %>>Price: high to low</option><option value="newest" <%= sort === 'newest' ? 'selected' : '' %>>Newest</option></select>
+    <button class="btn btn-dark" type="submit">Search</button>
+  </form>
+  <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1">
+    <% for(let listing of allListings){ %>
+    <a class="listing-link" href="/listings/<%= listing._id %>">
+      <div class="card col listing-card">
+        <img
+          src="<%= (listing.image && typeof listing.image === 'object' && listing.image.url)
+                        ? listing.image.url
+                        : (listing.image && typeof listing.image === 'string' ? listing.image : '/css/no-photo.png') %>"
+          class="card-img-top"
+          alt="listing_image"
+          style="height: 20rem"
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <% const priceDisplay = (listing.price != null) ?
+          listing.price.toLocaleString("en-IN") : "N/A"; %>
+          <p class="card-text">
+            <b><%= listing.title %></b> <br />
+            <span class="listing-location"><%= listing.location %>, <%= listing.country %></span><br />
+            &#8377;
+            <%= priceDisplay %>
+            / night <br />
+          </p>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+</body>

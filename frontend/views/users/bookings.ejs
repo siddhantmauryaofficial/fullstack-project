@@ -1,0 +1,39 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="profile-header">
+  <p class="eyebrow">Your itinerary</p>
+  <h1>Upcoming stays</h1>
+  <p class="muted-copy">Everything you have planned in one place.</p>
+</section>
+<nav class="profile-tabs" aria-label="Profile sections">
+  <a href="/profile">My stays</a><a href="/profile/favorites">Favorites</a
+  ><a class="active" href="/profile/bookings">Bookings</a>
+</nav>
+<section class="booking-list">
+  <% if (!bookings.length) { %>
+  <p class="muted-copy">No bookings yet. Find somewhere memorable.</p>
+  <% } %>
+  <% for (let booking of bookings) { %>
+  <article class="booking-item">
+    <div>
+      <p class="eyebrow"><%= booking.status %></p>
+      <h3><%= booking.listing.title %></h3>
+      <p class="muted-copy">
+        <%= booking.checkIn.toLocaleDateString() %> - <%=
+        booking.checkOut.toLocaleDateString() %> · <%= booking.guests %>
+        guest<%= booking.guests === 1 ? '' : 's' %>
+      </p>
+    </div>
+    <div class="booking-price">
+      <strong
+        >&#8377;
+        <%= booking.totalPrice.toLocaleString('en-IN') %></strong
+      ><% if (booking.status === 'confirmed') { %>
+      <form method="post" action="/bookings/<%= booking._id %>/cancel">
+        <button class="btn btn-sm btn-outline-dark">Cancel</button>
+      </form>
+      <% } %>
+    </div>
+  </article>
+  <% } %>
+</section>
