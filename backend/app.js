@@ -147,8 +147,9 @@ app.use((err, req, res, next) => {
 main()
   .then(() => {
     console.log('connected to DB');
-    app.listen(8080, () => {
-      console.log('server is listening to port 8080');
+    const port = process.env.PORT || 8080;
+    app.listen(port, '0.0.0.0', () => {
+      console.log(`server is listening on port ${port}`);
     });
   })
   .catch((err) => {
