@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Hotel4u
 
 Hotel4u is a full-stack app for finding and booking places to stay. It's built with Express, MongoDB, EJS, and Passport. You can browse listings, save the ones you like, leave reviews, and book a stay — or list your own place if you're hosting.
