@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: hotel4u
+    runtime: node
+    buildCommand: npm install
+    startCommand: node backend/app.js
+    envVars:
+      - key: MONGO_URL
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: DNS_SERVERS
+        value: 1.1.1.1,8.8.8.8

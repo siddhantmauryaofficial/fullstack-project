@@ -5,10 +5,11 @@
   "license": "ISC",
   "author": "Siddhant",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "backend/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend/app.js",
+    "start": "node backend/app.js",
+    "dev": "nodemon backend/app.js",
     "start:server": "node backend/app.js",
     "seed": "node backend/init/index.js",
     "format": "prettier --plugin=prettier-plugin-ejs --write ."

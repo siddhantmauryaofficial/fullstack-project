@@ -103,7 +103,7 @@ backend/       Express server, routes, models, validation, and database seed
 frontend/      EJS templates, shared layout files, CSS, and browser JavaScript
 ```
 
-This project currently uses server-rendered EJS, so the frontend is served by the Express backend. Deploy the repository to Render with `npm start` (or `node backend/app.js`). A completely independent Vercel frontend would require converting the EJS templates to React, Next.js, or another client framework.
+This project currently uses server-rendered EJS, so the frontend is served by the Express backend. Deploy the repository to Render with `npm start` (or `node backend/app.js`). For local development with automatic restarts, use `npm run dev`. A completely independent Vercel frontend would require converting the EJS templates to React, Next.js, or another client framework.
 
 ## How it's organized
 
